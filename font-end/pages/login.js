@@ -14,7 +14,7 @@ import {
 } from "@mui/material";
 import GitHubIcon from "@mui/icons-material/GitHub";
 
-const Home = () => {
+const UserName = () => {
   const [user, setUser] = useContext(GlobalContext)
   const btnstyle = { margin: "8px 0" };
   return (
@@ -38,6 +38,7 @@ const Home = () => {
           variant="contained"
           style={btnstyle}
           fullWidth
+          onClick={() => setUser()}
         >
           Sign in
         </Button>
@@ -46,4 +47,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default UserName;

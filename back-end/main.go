@@ -7,8 +7,7 @@ import (
 )
 
 func main() {
-
-	resp, err := http.Get("https://api.coinranking.com/v2/coins")
+	resp, err := http.Get("https://api.github.com/users/markmark345")
 	if err != nil {
 		panic(err)
 	}

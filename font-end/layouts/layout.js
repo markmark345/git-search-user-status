@@ -3,6 +3,8 @@ import Link from "next/link";
 import React from "react";
 import { Container } from "@mui/material";
 
+import Navbar from "../components/navbar";
+
 const Layout = ({ children, router }) => {
   return (
     <>
@@ -10,6 +12,7 @@ const Layout = ({ children, router }) => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>Git Status</title>
       </Head>
+      <Navbar path={router.asPath} />
       <Container maxWidth="md">{children}</Container>
     </>
   );
