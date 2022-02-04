@@ -4,7 +4,7 @@ import Image from 'next/image'
 const Home = () => {
   return (
     <div className='text-3xl font-bold underline'>
-      Hello world!
+      HI
     </div>
   )
 }
