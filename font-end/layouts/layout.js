@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Link from "next/link";
 import React from "react";
-import {Container} from '@mui/material';
+import { Container } from "@mui/material";
 
 const Layout = ({ children, router }) => {
   return (
@@ -10,7 +10,7 @@ const Layout = ({ children, router }) => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>Git Status</title>
       </Head>
-      <Container maxWidth="lg">{children}</Container>
+      <Container maxWidth="md">{children}</Container>
     </>
   );
 };
