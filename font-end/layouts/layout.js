@@ -1,13 +1,18 @@
 import Head from "next/head";
 import Link from "next/link";
 import React from "react";
+import {Container} from '@mui/material';
 
-const Layout = ({ chlidren, router }) => {
-    return (
-        <div className="relative py-14 px-4 md:px-6 2xl:px-20 2xl:container 2xl:mx-auto">
-            {children}
-        </div>
-    )
-}
+const Layout = ({ children, router }) => {
+  return (
+    <>
+      <Head>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Git Status</title>
+      </Head>
+      <Container maxWidth="lg">{children}</Container>
+    </>
+  );
+};
 
-export default Layout
+export default Layout;
