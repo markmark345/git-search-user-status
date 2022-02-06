@@ -3,7 +3,7 @@ import Link from "next/link";
 import React from "react";
 import { Container } from "@mui/material";
 
-import Navbar from "../components/navbar";
+import Navbar from "../components/Navbar/navbar";
 
 const Layout = ({ children, router }) => {
   return (

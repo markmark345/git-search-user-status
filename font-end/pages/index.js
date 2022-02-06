@@ -15,7 +15,7 @@ import {
 import GitHubIcon from "@mui/icons-material/GitHub";
 
 const Home = () => {
-  const [user, setUser] = useContext(GlobalContext)
+  // const [user, setUser] = useContext(GlobalContext)
   const btnstyle = { margin: "8px 0" };
   return (
     <Grid>
