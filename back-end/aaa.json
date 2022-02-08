@@ -1,0 +1,65 @@
+{
+    "allLang": [
+        {
+            "Go": 1836
+        },
+        {
+            "Java": 23626
+        },
+        {
+            "HTML": 58421,
+            "JavaScript": 43421,
+            "CSS": 14927,
+            "Python": 7893,
+            "Dockerfile": 767,
+            "Shell": 205
+        },
+        {
+            "Jupyter Notebook": 1713770
+        },
+        {
+            "Go": 10263,
+            "JavaScript": 3945,
+            "CSS": 64
+        },
+        {
+            "Jupyter Notebook": 41922179
+        },
+        {
+            "HTML": 1069562,
+            "CSS": 1008302,
+            "JavaScript": 239750,
+            "PHP": 40147
+        },
+        {
+            "JavaScript": 3537,
+            "HTML": 1721,
+            "CSS": 58
+        },
+        {},
+        {
+            "JavaScript": 17429
+        },
+        {
+            "JavaScript": 124525,
+            "SCSS": 102916,
+            "CSS": 776
+        },
+        {
+            "Java": 138225
+        },
+        {
+            "JavaScript": 4937,
+            "HTML": 1721,
+            "CSS": 58
+        },
+        {
+            "C++": 36195,
+            "Java": 1711,
+            "C": 13
+        },
+        {
+            "Go": 1708
+        }
+    ]
+}

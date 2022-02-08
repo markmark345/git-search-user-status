@@ -68,6 +68,7 @@ func newMux(logger *log.Logger, port string) *http.Server {
 
 	api1.HandleFunc("/user", getUserHandler).Queries("name", "{name}").Methods(http.MethodGet)
 	api1.HandleFunc("/repo", getUserReposHandler).Queries("name", "{name}").Methods(http.MethodGet)
+	api1.HandleFunc("/lang", getUserLanguagesHandler).Queries("name", "{name}").Methods(http.MethodGet)
 
 	return &http.Server{
 		Addr:    port,
