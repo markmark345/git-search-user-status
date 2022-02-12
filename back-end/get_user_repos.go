@@ -9,6 +9,7 @@ import (
 )
 
 func getRepos(name string) []Repo {
+	log.Println("getRepos : ", name)
 	var repos []Repo
 
 	resp, err := http.Get("https://api.github.com/users/" + name + "/repos")
