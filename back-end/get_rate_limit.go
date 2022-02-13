@@ -8,12 +8,11 @@ import (
 	"github.com/gorilla/mux"
 )
 
-func getUser(name string) UserInfo {
-	log.Println("getUser : ", name)
-	var UserInfo UserInfo
+func getRateLimit(name string) RateLimit {
+	var RateLimit RateLimit
 
 	client := &http.Client{}
-	req, err := http.NewRequest("GET", "https://api.github.com/users/"+name, nil)
+	req, err := http.NewRequest("GET", "https://api.github.com/rate_limit", nil)
 	if err != nil {
 		log.Println("Error : ", err)
 	}
@@ -31,21 +30,21 @@ func getUser(name string) UserInfo {
 	defer resp.Body.Close()
 
 	decoder := json.NewDecoder(resp.Body)
-	err = decoder.Decode(&UserInfo)
+	err = decoder.Decode(&RateLimit)
 	if err != nil {
-		return UserInfo
+		return RateLimit
 	}
-	return UserInfo
+	return RateLimit
 }
 
-func getUserHandler(w http.ResponseWriter, r *http.Request) {
+func getUserRateLimit(w http.ResponseWriter, r *http.Request) {
 	vars := mux.Vars(r)
 	name := vars["name"]
 	log.Println("getUserHandler : ", name)
 
-	user := getUser(name)
+	rate := getRateLimit(name)
 
 	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(http.StatusOK)
-	json.NewEncoder(w).Encode(user)
+	json.NewEncoder(w).Encode(rate)
 }

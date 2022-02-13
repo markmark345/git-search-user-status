@@ -17,7 +17,7 @@ func getRepos(name string) []Repo {
 	if err != nil {
 		log.Println("Error : ", err)
 	}
-	auth := basicAuth("markmark345", "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")
+	auth := basicAuth("markmark345", "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")
 	log.Println("basic auth : ", auth)
 	req.Header.Add("Authorization", "Basic "+auth)
 	resp, err := client.Do(req)
