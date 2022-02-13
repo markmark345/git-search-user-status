@@ -1,6 +1,7 @@
 package main
 
 import (
+	"encoding/base64"
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
@@ -12,10 +13,23 @@ import (
 	"github.com/gorilla/mux"
 )
 
+func basicAuth(username, password string) string {
+	auth := username + ":" + password
+	return base64.StdEncoding.EncodeToString([]byte(auth))
+}
+
 func getRepoLang(name, repo string) string {
-	resp, err := http.Get("https://api.github.com/repos/" + name + "/" + repo + "/languages")
+	client := &http.Client{}
+	req, err := http.NewRequest("GET", "https://api.github.com/repos/"+name+"/"+repo+"/languages", nil)
 	if err != nil {
-		panic(err)
+		log.Println("Error : ", err)
+	}
+	auth := basicAuth("markmark345", "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")
+	log.Println("basic auth : ", auth)
+	req.Header.Add("Authorization", "Basic "+auth)
+	resp, err := client.Do(req) // http.Get("https://api.github.com/repos/" + name + "/" + repo + "/languages")
+	if err != nil {
+		log.Println("Error : ", err)
 	}
 	defer resp.Body.Close()
 	body, err := ioutil.ReadAll(resp.Body)
@@ -83,9 +97,13 @@ func getUserLanguagesHandler(w http.ResponseWriter, r *http.Request) {
 
 	}
 
+	jsonString, err := json.Marshal(x)
+	if err != nil {
+		log.Println("Error : ", err)
+	}
 	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(http.StatusOK)
 	// json.NewEncoder(w).Encode(languages)
-	ret := "[" + strings.Join(languages[:], ", ") + "]"
-	w.Write([]byte(ret))
+	//ret := "[" + strings.Join(languages[:], ", ") + "]"
+	w.Write([]byte(jsonString))
 }
